@@ -32,4 +32,6 @@ sed -i \
 popd
 
 cp ./anaconda/updates.img ./kickstart/updates.img
-printf '\033[32mDone, no errors\033[m\n'
+printf '\033[32mDone, no errors, serving files now on port 8080\033[m\n'
+pushd ./kickstart
+../python2/bin/python2 -m SimpleHTTPServer 8080
