@@ -3,11 +3,11 @@
 # Kill all other monitoring scripts
 ps auxww | grep -v grep | grep -v "${$}" | grep 'monitoring.sh' | awk '{print $2}' | xargs -rn1 kill -9
 
+# Wait 20 so there's time for a user to log in
+sleep 20
+
 # Repeat every 600 seconds (10 minutes)
 while : ; do
-
-# Wait 60 so there's time for a user to log in
-sleep 60
 
 logical_cores="$( lscpu -p | grep -v '^#' | wc -l )"
 physical_cores="$( lscpu -p | grep -v '^#' | sort -u -t',' -k'2,4' | wc -l )"
