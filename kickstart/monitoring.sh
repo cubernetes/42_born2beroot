@@ -6,8 +6,8 @@ ps auxww | grep -v grep | grep -v "${$}" | grep 'monitoring.sh' | awk '{print $2
 # Repeat every 600 seconds (10 minutes)
 while : ; do
 
-# Wait 30 so there's time for a user to log in
-sleep 30
+# Wait 60 so there's time for a user to log in
+sleep 60
 
 logical_cores="$( lscpu -p | grep -v '^#' | wc -l )"
 physical_cores="$( lscpu -p | grep -v '^#' | sort -u -t',' -k'2,4' | wc -l )"
